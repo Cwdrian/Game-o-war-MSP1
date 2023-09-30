@@ -61,7 +61,7 @@ const cardImages = [
 "card_spades_K.png",
 ];
 
-// Create deck
+//deck
 const deck = cardImages.map(imageFileName => ({ image: `assets/Cards (large)/${imageFileName}` }));
 
 const cardValues = {
@@ -119,7 +119,7 @@ const cardValues = {
     "card_spades_K.png": 13,
 };
 
-// Step 2: Create a function to shuffle the deck
+//shuffle the deck
 function shuffleDeck(deck) {
     for (let i = deck.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -127,20 +127,17 @@ function shuffleDeck(deck) {
     }
 }
 
-// Initialize scores
 let playerScore = 0;
 let cpuScore = 0;
 
-// Function to select and display cards
 function selectAndDisplayCards() {
-    // Shuffle the deck
+    
     shuffleDeck(deck);
 
-    // Select two random cards
     const randomCard1 = deck[Math.floor(Math.random() * deck.length)];
     const randomCard2 = deck[Math.floor(Math.random() * deck.length)];
 
-    // Get the player and CPU card image elements by their IDs
+    // player and cpu card img
     const playerCardElement = document.getElementById("playerCard");
     const cpuCardElement = document.getElementById("cpuCard");
 
@@ -148,22 +145,22 @@ function selectAndDisplayCards() {
     playerCardElement.src = randomCard1.image;
     cpuCardElement.src = randomCard2.image;
 
-    // Get the values of the selected cards based on their image file names
+    // Get the values of the card
     const playerCardValue = cardValues[randomCard1.image];
     const cpuCardValue = cardValues[randomCard2.image];
 
-    // Debugging: Log values to the console
+//compare values
+    if (playerCardValue > cpuCardValue) {
+        playerScore++; 
+    } else if (playerCardValue < cpuCardValue) {
+        cpuScore++; 
+    }
     console.log("Player card value:", playerCardValue);
     console.log("CPU card value:", cpuCardValue);
-
-    // Compare the values of the selected cards
-    if (playerCardValue > cpuCardValue) {
-        playerScore++; // Player wins and gets 1 point
-    } else if (playerCardValue < cpuCardValue) {
-        cpuScore++; // CPU wins and gets 1 point
-    }
-
-    // Update the score display on the webpage
+    console.log("Player Score:", playerScore);
+    console.log("CPU Score:", cpuScore);
+    
+    
     document.getElementById("playerScore").textContent = `Player Score: ${playerScore}`;
     document.getElementById("cpuScore").textContent = `CPU Score: ${cpuScore}`;
 }

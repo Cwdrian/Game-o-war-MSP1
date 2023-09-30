@@ -8,12 +8,12 @@
 </head>
 <body>
     <h1>Game of War</h1>
-    <p>In this game you will play a computer in a simple game of WAR!</p>
+    <p>In this game, you will play against the CPU in a simple card game.</p>
     <h4>RULES:</h4>
     <ol class="rules">
-<li>Enter your name in the box, and press START.</li>
-<li>click the deck to deal a random card to the CPU and yourself</li>
-<li>Highest card wins!</li>
+        <li>Enter your name in the box and press START.</li>
+        <li>Click the deck to deal a random card to the CPU and yourself.</li>
+        <li>Highest card wins!</li>
     </ol>
     <form id="nameForm">
         <label for="playerName">Enter your name:</label>
@@ -26,7 +26,26 @@
         <div class="cpu-name">CPU</div>
     </div>
     <br>
-    <img src="your-image-url.jpg" alt="Button Image" id="gameButton" class="game-button">
+
+    <div class="player-card">
+        <h2>Player</h2>
+        <img src="" alt="Player's Card" id="playerCard">
+    </div>
+
+    
+    <div class="cpu-card">
+        <h2>CPU</h2>
+        <img src="" alt="CPU's Card" id="cpuCard">
+    </div>
+
+    <!-- Player's score -->
+    <div id="playerScore" class="score">Player Score: 0</div>
+
+    <!-- CPU's score -->
+    <div id="cpuScore" class="score">CPU Score: 0</div>
+    <!--deal button-->
+    <img src="assets/card_back.png" alt="Button Image Back of Card" id="gameButton" class="game-button">
     <script src="main.js"></script>
+
 </body>
 </html>

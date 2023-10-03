@@ -62,7 +62,11 @@ const cardImages = [
 ];
 
 //deck
-const deck = cardImages.map(imageFileName => ({ image: `assets/Cards (large)/${imageFileName}` }));
+const deck = cardImages.map(
+    imageFileName => 
+    ({ image: `assets/Cards (large)/${imageFileName}`,
+filename:  `${imageFileName}`}
+));
 
 const cardValues = {
     "card_hearts_A.png": 14,
@@ -130,41 +134,50 @@ function shuffleDeck(deck) {
 let playerScore = 0;
 let cpuScore = 0;
 
-function selectAndDisplayCards() {
-    
-    shuffleDeck(deck);
-
-    const randomCard1 = deck[Math.floor(Math.random() * deck.length)];
-    const randomCard2 = deck[Math.floor(Math.random() * deck.length)];
-
-    // player and cpu card img
-    const playerCardElement = document.getElementById("playerCard");
-    const cpuCardElement = document.getElementById("cpuCard");
-
-    // Set the src attributes of the card images based on the selected cards
-    playerCardElement.src = randomCard1.image;
-    cpuCardElement.src = randomCard2.image;
-
-    // Get the values of the card
-    const playerCardValue = cardValues[randomCard1.image];
-    const cpuCardValue = cardValues[randomCard2.image];
-
-//compare values
-    if (playerCardValue > cpuCardValue) {
-        playerScore++; 
-    } else if (playerCardValue < cpuCardValue) {
-        cpuScore++; 
+let randomCard1 = null;
+let randomCard2 = null;
+//this updates the score
+function updateScores() {
+    if (randomCard1 === null || randomCard2 === null) {
+        return;
     }
-    console.log("Player card value:", playerCardValue);
-    console.log("CPU card value:", cpuCardValue);
-    console.log("Player Score:", playerScore);
-    console.log("CPU Score:", cpuScore);
-    
-    
+
+    const playerCardValue = cardValues[randomCard1.filename];
+    const cpuCardValue = cardValues[randomCard2.filename];
+
+    if (playerCardValue > cpuCardValue) {
+        playerScore++;
+    } else if (playerCardValue < cpuCardValue) {
+        cpuScore++;
+    }
+// Debugging statements
+//console.log("Player Score:", playerScore);
+//console.log("CPU Score:", cpuScore);
     document.getElementById("playerScore").textContent = `Player Score: ${playerScore}`;
     document.getElementById("cpuScore").textContent = `CPU Score: ${cpuScore}`;
 }
 
-const gameButton = document.getElementById("gameButton");
+function selectAndDisplayCards() {
+    shuffleDeck(deck);
+
+    randomCard1 = deck[Math.floor(Math.random() * deck.length)];
+    randomCard2 = deck[Math.floor(Math.random() * deck.length)];
+    //debuggin statements
+    //console.log("Random Card 1:", randomCard1);
+    //console.log("Random Card 2:", randomCard2);
+    const playerCardElement = document.getElementById("playerCard");
+    const cpuCardElement = document.getElementById("cpuCard");
+
+    playerCardElement.src = randomCard1.image;
+    cpuCardElement.src = randomCard2.image;
+
+    // Call the function to update scores
+    updateScores();
+    // Debugging statements
+    //console.log("Random Card 1:", randomCard1);
+    //console.log("Random Card 2:", randomCard2);
+}
+
+const gameButton = document.getElementById("dealButton"); // Make sure to use the correct button ID
 
 gameButton.addEventListener("click", selectAndDisplayCards);

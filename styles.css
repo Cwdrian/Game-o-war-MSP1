@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-image: url("assets/back of card/lightbackgroundmst1.avif");
 }
 form {
     margin: 20px auto;
@@ -10,6 +11,8 @@ input[type="text"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
+    background-color: #f0f0f0;
+    border-color: #ff9900;
 }
 input[type="submit"] {
     background-color: #ff9900;
@@ -27,12 +30,15 @@ input[type="submit"] {
 .player-name, .cpu-name{
     background-color: #f0f0f0;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #ff9900;
     flex: 1;
 }
 .rules{
     text-align: center;
     list-style-position: inside;
+    background-color: #f0f0f0;
+    border: 2px solid #ff9900;
+    padding: 5px;
 }
 .deal-container {
     box-shadow: 2.5px 2.5px;

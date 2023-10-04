@@ -16,29 +16,23 @@
         <li>Highest card wins!</li>
     </ol>
     <form id="nameForm">
-        <label for="playerName">Enter your name:</label>
-        <input type="text" id="playerName" name="playerName" required>
+        <label for="playerName"><label>
+        <input type="text" id="playerName" name="playerName" placeholder="Enter your name" required>
         <br>
         <input type="submit" value="Start">
     </form>
-    <div class="wrapper">
-        <div class="player-name"></div>
-        <div class="cpu-name">CPU</div>
-    </div>
     <br>
-
+<div class="wrapper">
     <div class="player-card">
-        <h2>Player</h2>
-        <img src="" alt="Player's Card" id="playerCard">
+        <h2 class="player-name"></h2>
+        <img src="assets/Cards (large)/card_empty.png" alt="Player's Card" id="playerCard">
     </div>
-    
 
-    
     <div class="cpu-card">
-        <h2>CPU</h2>
-        <img src="" alt="CPU's Card" id="cpuCard">
+        <h2 class="cpu-name">CPU</h2>
+        <img src="assets/Cards (large)/card_empty.png" alt="CPU's Card" id="cpuCard">
     </div>
-
+</div>
     <div id="playerScore" class="score">Player Score: 0</div>
 
     <div id="cpuScore" class="score">CPU Score: 0</div>
@@ -46,6 +40,9 @@
     <p>DEAL</p>
     <img src="assets/card_back.png" alt="Button Image Back of Card" class="game-button">
 </div>
+<audio id="dealSound">
+    <source src="assets/back of card/card-sounds-35956.mp3" type="audio/mpeg">
+</audio>
     <script src="main.js"></script>
 
 </body>

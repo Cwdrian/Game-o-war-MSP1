@@ -5,7 +5,7 @@ document.getElementById("nameForm").addEventListener("submit", function(event) {
     // Display name
     document.querySelector(".player-name").textContent = playerName;
 });
-
+//cards
 const cardImages = [
 "card_hearts_A.png",
 "card_hearts_02.png",
@@ -67,7 +67,7 @@ const deck = cardImages.map(
     ({ image: `assets/Cards (large)/${imageFileName}`,
 filename:  `${imageFileName}`}
 ));
-
+//card values
 const cardValues = {
     "card_hearts_A.png": 14,
     "card_hearts_02.png": 2,
@@ -127,7 +127,7 @@ const cardValues = {
 function shuffleDeck(deck) {
     for (let i = deck.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [deck[i], deck[j]] = [deck[j], deck[i]]; // Swap elements
+        [deck[i], deck[j]] = [deck[j], deck[i]]; 
     }
 }
 
@@ -150,34 +150,31 @@ function updateScores() {
     } else if (playerCardValue < cpuCardValue) {
         cpuScore++;
     }
-// Debugging statements
-//console.log("Player Score:", playerScore);
-//console.log("CPU Score:", cpuScore);
+
     document.getElementById("playerScore").textContent = `Player Score: ${playerScore}`;
     document.getElementById("cpuScore").textContent = `CPU Score: ${cpuScore}`;
 }
-
+//display the cards
 function selectAndDisplayCards() {
     shuffleDeck(deck);
 
     randomCard1 = deck[Math.floor(Math.random() * deck.length)];
     randomCard2 = deck[Math.floor(Math.random() * deck.length)];
-    //debuggin statements
-    //console.log("Random Card 1:", randomCard1);
-    //console.log("Random Card 2:", randomCard2);
+
     const playerCardElement = document.getElementById("playerCard");
     const cpuCardElement = document.getElementById("cpuCard");
 
     playerCardElement.src = randomCard1.image;
     cpuCardElement.src = randomCard2.image;
+    // play the sound
+    const dealSound = document.getElementById("dealSound");
+    dealSound.volume = .2;
+    dealSound.play();
 
     // Call the function to update scores
     updateScores();
-    // Debugging statements
-    //console.log("Random Card 1:", randomCard1);
-    //console.log("Random Card 2:", randomCard2);
 }
 
-const gameButton = document.getElementById("dealButton"); // Make sure to use the correct button ID
+const gameButton = document.getElementById("dealButton");
 
 gameButton.addEventListener("click", selectAndDisplayCards);

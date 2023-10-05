@@ -1,5 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Metal Mania', cursive;
+    font-size: large;
     text-align: center;
     background-image: url("assets/back of card/lightbackgroundmst1.avif");
 }
@@ -34,6 +35,7 @@ input[type="submit"] {
     flex: 1;
 }
 .rules{
+    
     text-align: center;
     list-style-position: inside;
     background-color: #f0f0f0;
@@ -53,4 +55,6 @@ input[type="submit"] {
 .deal-container img {
     vertical-align: middle !important;
 }
-
+.score{
+font-size: 20px;
+}

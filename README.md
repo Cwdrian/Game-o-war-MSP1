@@ -1,7 +1,5 @@
 # Game-o-war-MSP1
 
-This is my game. its a game of luck. highest card wins.
-
 fonts are from google fonts
 
 the sound is from pixabay.com

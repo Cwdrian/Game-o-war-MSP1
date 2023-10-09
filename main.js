@@ -187,28 +187,21 @@ const gameButton = document.getElementById("dealButton");
 
 gameButton.addEventListener("click", selectAndDisplayCards);
 
-// Your existing game code...
-
 // Reset button event listener
 const resetButton = document.getElementById("resetButton");
-
+// Reset scores and result message
 resetButton.addEventListener("click", function() {
-    // Reset scores and result message
     playerScore = 0;
     cpuScore = 0;
     document.getElementById("playerScore").textContent = "Player Score: 0";
     document.getElementById("cpuScore").textContent = "CPU Score: 0";
     document.getElementById("resultMessage").textContent = "";
 
-    // Re-enable the game button
     enableGameButton();
 });
 
 function enableGameButton() {
     const gameButton = document.getElementById("dealButton");
     gameButton.addEventListener("click", selectAndDisplayCards);
-    gameButton.style.pointerEvents = "auto"; // Enable clicking
+    gameButton.style.pointerEvents = "auto";
 }
-
-// ... Your existing game code ...
-

@@ -57,3 +57,26 @@ input[type="submit"] {
 .score{
 font-size: 20px;
 }
+#resultMessage{
+    font-size: 32px;
+    animation: flash 1s infinite;
+}
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#resetButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #ff9900;
+    color: black;
+}

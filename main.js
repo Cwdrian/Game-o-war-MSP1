@@ -153,6 +153,14 @@ function updateScores() {
 
     document.getElementById("playerScore").textContent = `Player Score: ${playerScore}`;
     document.getElementById("cpuScore").textContent = `CPU Score: ${cpuScore}`;
+    
+    if (playerScore >= 30) {
+        document.getElementById("resultMessage").textContent = "You Win!";
+        disableGameButton();
+    } else if (cpuScore >= 30) {
+        document.getElementById("resultMessage").textContent = "You Lose!";
+        disableGameButton();
+    }
 }
 //display the cards
 function selectAndDisplayCards() {
@@ -178,3 +186,29 @@ function selectAndDisplayCards() {
 const gameButton = document.getElementById("dealButton");
 
 gameButton.addEventListener("click", selectAndDisplayCards);
+
+// Your existing game code...
+
+// Reset button event listener
+const resetButton = document.getElementById("resetButton");
+
+resetButton.addEventListener("click", function() {
+    // Reset scores and result message
+    playerScore = 0;
+    cpuScore = 0;
+    document.getElementById("playerScore").textContent = "Player Score: 0";
+    document.getElementById("cpuScore").textContent = "CPU Score: 0";
+    document.getElementById("resultMessage").textContent = "";
+
+    // Re-enable the game button
+    enableGameButton();
+});
+
+function enableGameButton() {
+    const gameButton = document.getElementById("dealButton");
+    gameButton.addEventListener("click", selectAndDisplayCards);
+    gameButton.style.pointerEvents = "auto"; // Enable clicking
+}
+
+// ... Your existing game code ...
+
